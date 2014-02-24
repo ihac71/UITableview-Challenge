@@ -1,5 +1,5 @@
 //
-//  CPViewController.h
+//  CPTableViewController.h
 //  UITableViewController Challenge solution
 //
 //  Created by Chuck on 2/23/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CPViewController : UIViewController
+@interface CPTableViewController : UITableViewController
 
 @end
