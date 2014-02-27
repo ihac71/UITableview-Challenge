@@ -32,6 +32,17 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.quote = [[NSMutableArray alloc] init];
+    
+    NSString *section1 = @"I am in section 0";
+    NSString *section2 = @"Another Section";
+    NSString *section3 = @"Row";
+    
+    [self.quote addObject:section1];
+    [self.quote addObject:section2];
+    [self.quote addObject:section3];
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,14 +57,27 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    
+    if (section == 2) {
+        return 3;
+    }
+    if (section == 1) {
+        return 1;
+    }
+
+    
+    else{
+        return 2;}
+    
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,6 +86,22 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    
+       cell.textLabel.text = [self.quote objectAtIndex:indexPath.section];
+    if (indexPath.section == 0) {
+        cell.backgroundColor = [UIColor redColor];
+    }
+    
+    if (indexPath.section == 1) {
+        cell.backgroundColor = [UIColor blueColor];
+    }
+    if (indexPath.section ==2) {
+        cell.backgroundColor =[UIColor yellowColor];
+    }
+    
+    if (indexPath.section ==2) {
+        cell.textLabel.text =[NSString stringWithFormat:@"Row %i", indexPath.row];
+    }
     
     return cell;
 }

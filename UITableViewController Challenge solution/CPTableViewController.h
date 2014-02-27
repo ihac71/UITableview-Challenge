@@ -10,4 +10,6 @@
 
 @interface CPTableViewController : UITableViewController
 
+@property (strong,nonatomic) NSMutableArray *quote;
+
 @end
